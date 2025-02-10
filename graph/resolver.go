@@ -19,3 +19,7 @@ func (r *Resolver) GetUser(ctx context.Context, id string) (*models.User, error)
 func (r *Resolver) ListUsers(ctx context.Context, name string, email string) (*models.User, error) {
 	return r.UserService.CreateUser(name, email)
 }
+
+func (r *Resolver) Mutation() graph.Resolver {
+	return &mutationResolver{r}
+}

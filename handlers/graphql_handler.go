@@ -4,6 +4,7 @@ import (
 	"user-authentication/graph"
 
 	"github.com/99designs/gqlgen/graphql/handler"
+	"github.com/99designs/gqlgen/graphql/playground"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,6 +19,7 @@ func GraphQLHandler(resolver *graph.Resolver) gin.HandlerFunc {
 
 func PlaygroundHandler() gin.HandlerFunc {
 	return func(c *gin.Context) {
-		Playground.Handler("GraphQL Playground", "/graphql").ServeHTTP(c.Writer, c.Request)
+		playground.Handler("GraphQL Playground", "/graphql").ServeHTTP(c.Writer, c.Request)
 	}
+
 }
